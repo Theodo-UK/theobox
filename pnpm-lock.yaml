@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@next/font':
-    specifier: ^13.4.19
-    version: 13.4.19
   '@react-three/drei':
     specifier: ^9.83.9
     version: 9.83.9(@react-three/fiber@8.14.1)(@types/three@0.156.0)(react-dom@18.2.0)(react@18.2.0)(three@0.156.1)
@@ -177,10 +174,6 @@ packages:
     resolution: {integrity: sha512-N/O+zGb6wZQdwu6atMZHbR7T9Np5SUFUjZqCbj0sXm+MwQO35M8TazVB4otm87GkXYs2l6OPwARd3/PUWhZBVQ==}
     dependencies:
       glob: 7.1.7
-    dev: false
-
-  /@next/font@13.4.19:
-    resolution: {integrity: sha512-yOuSRYfqksWcaG/sATr1/DEGvvI8gnmAAnQCCZ0+L9p4Pio3/DMu71J56YHh9Hz84LDN4tMVzuux0ssCuM50sA==}
     dev: false
 
   /@next/swc-darwin-arm64@13.4.19:
