@@ -32,7 +32,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center p-24 gap-5 h-screen box-border">
+    <main className="flex flex-col items-center pt-[8%] px-24 gap-5 h-screen">
       <div className="flex flex-row absolute left-10 bottom-10">
         <input
           type="checkbox"
@@ -42,12 +42,14 @@ export default function Home() {
         <p className="font-normal text-xl mx-2">Rounding</p>
       </div>
 
-      <div className="h-[35%]">
+      <div className="h-[35%] w-full">
         <Box />
       </div>
 
       <p className="font-normal text-8xl m-5">TheoBox</p>
       <div className="flex flex-row gap-5 items-center">
+        <p className="font-normal text-3xl mt-5"> ❬ </p>
+
         <CustomInput label="💨 Speed" value={speed} setValue={setSpeed} />
 
         <p className="font-normal text-3xl mt-5"> ➗ </p>
@@ -58,7 +60,7 @@ export default function Home() {
           setValue={setDevHours}
         />
 
-        <p className="font-normal text-3xl mt-5"> ✖️ </p>
+        <p className="font-normal text-3xl mt-5">❭ ✖️ </p>
 
         <CustomInput label="⏰ Hours" value={hours} setValue={setHours} />
 

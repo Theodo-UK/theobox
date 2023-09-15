@@ -11,12 +11,12 @@ const DevHours = () => {
         🥗 We then remove 1.5 hours for lunch and progression time
       </p>
       <p className="font-normal text-xl">
-        👩‍✈️ All other non-ticket work (meetings, problem solving, kaizens etc.)
-        is accounted for in the team speed
+        👩‍✈️ All other work (meetings, problem solving, kaizens etc.) is accounted
+        for in the team speed
       </p>
       <p className="font-normal text-xl">
-        💪 We do this to keep things simpler for clients and separating project
-        and non-project work
+        💪 We do this to keep things simpler by more clearly separating the
+        categories of time spent
       </p>
     </main>
   );
