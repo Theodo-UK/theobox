@@ -1,5 +1,6 @@
 "use client";
 
+import Box from "@/components/Box";
 import CustomInput from "@/components/CustomInput";
 import Link from "next/link";
 import { useState } from "react";
@@ -40,6 +41,11 @@ export default function Home() {
         />
         <p className="font-normal text-xl mx-2">Rounding</p>
       </div>
+
+      <div className="h-[35%]">
+        <Box />
+      </div>
+
       <p className="font-normal text-8xl m-5">TheoBox</p>
       <div className="flex flex-row gap-5 items-center">
         <CustomInput label="💨 Speed" value={speed} setValue={setSpeed} />
