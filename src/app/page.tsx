@@ -2,34 +2,40 @@
 
 import Box from "@/components/Box";
 import CustomInput from "@/components/CustomInput";
+import useQueryParams from "@/hooks/useQueryParams";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const THEODO_DEV_HOURS = 7;
+  const THEODO_DEV_HOURS = "7";
 
-  const [speed, setSpeed] = useState<number>();
-  const [devHours, setDevHours] = useState<number | undefined>(
-    THEODO_DEV_HOURS
-  );
-  const [hours, setHours] = useState<number>();
-  const [people, setPeople] = useState<number>();
   const [roundingEnabled, setRoundingEnabled] = useState<boolean>(true);
 
-  const getEstimate = () => {
-    console.log(roundingEnabled);
+  const { queryParams, setQueryParams } = useQueryParams();
+  const { speed, devHours, hours, people } = queryParams;
 
+  const getEstimate = () => {
     const allDefined = speed && devHours && hours && people;
 
     if (allDefined) {
       const estimate = parseFloat(
-        ((speed / devHours) * hours * people).toFixed(2)
+        (
+          (parseInt(speed) / parseInt(devHours)) *
+          parseInt(hours) *
+          parseInt(people)
+        ).toFixed(2)
       );
       return roundingEnabled ? Math.round(estimate) : estimate;
     }
 
     return "❓";
   };
+
+  useEffect(() => {
+    if (devHours === undefined) {
+      setQueryParams({ devHours: THEODO_DEV_HOURS });
+    }
+  }, [devHours, setQueryParams]);
 
   return (
     <main className="flex flex-col items-center pt-[8%] px-24 gap-5 h-screen">
@@ -48,30 +54,50 @@ export default function Home() {
 
       <p className="font-normal text-8xl m-5">TheoBox</p>
       <div className="flex flex-row gap-5 items-center">
-        <p className="font-normal text-3xl mt-5"> ❬ </p>
+        <p className="font-normal text-5xl mt-5 text-gray-500"> ❬ </p>
 
-        <CustomInput label="💨 Speed" value={speed} setValue={setSpeed} />
+        <CustomInput
+          label="💨 Speed"
+          value={speed}
+          onChangeValue={(e) => {
+            setQueryParams({ speed: e.target.value ?? undefined });
+          }}
+        />
 
         <p className="font-normal text-3xl mt-5"> ➗ </p>
 
         <CustomInput
           label="💻 Dev Hours"
           value={devHours}
-          setValue={setDevHours}
+          onChangeValue={(e) => {
+            setQueryParams({ devHours: e.target.value ?? "" });
+          }}
         />
+        <p className="font-normal text-5xl mt-5  text-gray-600"> ❭ </p>
+        <p className="font-normal text-3xl mt-5"> ✖️ </p>
 
-        <p className="font-normal text-3xl mt-5">❭ ✖️ </p>
-
-        <CustomInput label="⏰ Hours" value={hours} setValue={setHours} />
+        <CustomInput
+          label="⏰ Hours"
+          value={hours}
+          onChangeValue={(e) => {
+            setQueryParams({ hours: e.target.value });
+          }}
+        />
 
         <p className="font-normal text-3xl mt-5"> ✖️ </p>
 
-        <CustomInput label="👶 People" value={people} setValue={setPeople} />
+        <CustomInput
+          label="👶 People"
+          value={people}
+          onChangeValue={(e) => {
+            setQueryParams({ people: e.target.value });
+          }}
+        />
       </div>
       <p className="font-normal text-4xl mt-5"> 🟰 {getEstimate()} points</p>
 
       {devHours !== THEODO_DEV_HOURS && (
-        <p className="font-normal text-red-500">
+        <p className="font-normal text-red-600">
           *It is generally not advised to change the dev hours from{" "}
           {THEODO_DEV_HOURS}{" "}
           <Link className="underline" href="/devhours">
