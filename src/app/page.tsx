@@ -38,16 +38,7 @@ export default function Home() {
   }, [devHours, setQueryParams]);
 
   return (
-    <main className="flex flex-col items-center pt-[8%] px-24 gap-5 h-screen">
-      <div className="flex flex-row absolute left-10 bottom-10">
-        <input
-          type="checkbox"
-          checked={roundingEnabled}
-          onChange={(e) => setRoundingEnabled(e.target.checked)}
-        />
-        <p className="font-normal text-xl mx-2">Rounding</p>
-      </div>
-
+    <main className="flex flex-col items-center pt-10 px-10 gap-5 h-screen">
       <div className="h-[35%] w-full">
         <Box />
       </div>
@@ -105,6 +96,15 @@ export default function Home() {
           </Link>
         </p>
       )}
+
+      <div className="flex flex-row sm:absolute left-10 bottom-10 p-3">
+        <input
+          type="checkbox"
+          checked={roundingEnabled}
+          onChange={(e) => setRoundingEnabled(e.target.checked)}
+        />
+        <p className="font-normal text-xl mx-2">Rounding</p>
+      </div>
     </main>
   );
 }
