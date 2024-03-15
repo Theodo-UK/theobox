@@ -43,10 +43,8 @@ export default function Home() {
         <Box />
       </div>
 
-      <p className="font-normal text-8xl m-5">TheoBox</p>
-      <div className="flex flex-row gap-5 items-center">
-        <p className="font-normal text-5xl mt-5 text-gray-500"> ❬ </p>
-
+      <p className="font-normal sm:text-8xl text-4xl m-5">TheoBox</p>
+      <div className="flex sm:flex-row flex-col gap-5 items-center">
         <CustomInput
           label="💨 Speed"
           value={speed}
@@ -64,7 +62,6 @@ export default function Home() {
             setQueryParams({ devHours: e.target.value ?? "" });
           }}
         />
-        <p className="font-normal text-5xl mt-5  text-gray-600"> ❭ </p>
         <p className="font-normal text-3xl mt-5"> ✖️ </p>
 
         <CustomInput
