@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 
 const archivo = Archivo({ subsets: ["latin"], variable: "--font-archivo" });
 
@@ -26,6 +27,8 @@ export default function RootLayout({
       </head>
       <body className={archivo.variable}>
         <Header />
+        <Analytics />
+
         {children}
       </body>
     </html>
