@@ -1,10 +1,5 @@
 import { TheoboxQueryParams } from "@/app/types";
-import {
-  ReadonlyURLSearchParams,
-  usePathname,
-  useRouter,
-  useSearchParams,
-} from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function useQueryParams() {
   const router = useRouter();
@@ -27,7 +22,7 @@ export default function useQueryParams() {
     const search = urlSearchParams.toString();
     const query = search ? `?${search}` : "";
 
-    router.replace(`${pathname}${query}`);
+    router.replace(`${pathname}${query}`, { scroll: false });
   };
 
   return {

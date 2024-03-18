@@ -38,24 +38,13 @@ export default function Home() {
   }, [devHours, setQueryParams]);
 
   return (
-    <main className="flex flex-col items-center pt-[8%] px-24 gap-5 h-screen">
-      <div className="flex flex-row absolute left-10 bottom-10">
-        <input
-          type="checkbox"
-          checked={roundingEnabled}
-          onChange={(e) => setRoundingEnabled(e.target.checked)}
-        />
-        <p className="font-normal text-xl mx-2">Rounding</p>
-      </div>
-
+    <main className="flex flex-col items-center pt-10 px-10 gap-5 h-screen">
       <div className="h-[35%] w-full">
         <Box />
       </div>
 
-      <p className="font-normal text-8xl m-5">TheoBox</p>
-      <div className="flex flex-row gap-5 items-center">
-        <p className="font-normal text-5xl mt-5 text-gray-500"> ❬ </p>
-
+      <p className="font-normal sm:text-8xl text-4xl m-5">TheoBox</p>
+      <div className="flex sm:flex-row flex-col gap-5 items-center">
         <CustomInput
           label="💨 Speed"
           value={speed}
@@ -73,7 +62,6 @@ export default function Home() {
             setQueryParams({ devHours: e.target.value ?? "" });
           }}
         />
-        <p className="font-normal text-5xl mt-5  text-gray-600"> ❭ </p>
         <p className="font-normal text-3xl mt-5"> ✖️ </p>
 
         <CustomInput
@@ -105,6 +93,15 @@ export default function Home() {
           </Link>
         </p>
       )}
+
+      <div className="flex flex-row sm:absolute left-10 bottom-10 p-3">
+        <input
+          type="checkbox"
+          checked={roundingEnabled}
+          onChange={(e) => setRoundingEnabled(e.target.checked)}
+        />
+        <p className="font-normal text-xl mx-2">Rounding</p>
+      </div>
     </main>
   );
 }

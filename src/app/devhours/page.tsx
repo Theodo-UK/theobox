@@ -1,6 +1,6 @@
 const DevHours = () => {
   return (
-    <main className="flex min-h-screen flex-col  p-24 gap-5">
+    <main className="flex flex-col pt-20 px-10 gap-5 h-screen">
       <p className="font-normal text-xl">
         ❓ Why do we assume there are 7 dev hours in a day?
       </p>
