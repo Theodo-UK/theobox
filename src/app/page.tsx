@@ -10,6 +10,7 @@ export default function Home() {
   const THEODO_DEV_HOURS = "7";
 
   const [roundingEnabled, setRoundingEnabled] = useState<boolean>(true);
+  const [cubeColor, setCubeColor] = useState("orange");
 
   const { queryParams, setQueryParams } = useQueryParams();
   const { speed, devHours, hours, people } = queryParams;
@@ -38,9 +39,23 @@ export default function Home() {
   }, [devHours, setQueryParams]);
 
   return (
-    <main className="flex flex-col items-center pt-10 px-10 gap-5 h-screen">
+    <main className="flex flex-col items-center justify-center px-10 gap-5 h-screen">
+      <div>
+        <button
+          className="rounded-full h-5 w-5 bg-orange-500 mx-1"
+          onClick={() => setCubeColor("orange")}
+        />
+        <button
+          className="rounded-full bg-red-600 h-5 w-5 mx-1"
+          onClick={() => setCubeColor("red")}
+        />
+        <button
+          className="rounded-full bg-green-600 h-5 w-5 mx-1"
+          onClick={() => setCubeColor("green")}
+        />
+      </div>
       <div className="h-[35%] w-full">
-        <Box />
+        <Box color={cubeColor} />
       </div>
 
       <p className="font-normal sm:text-8xl text-4xl m-5">TheoBox</p>
