@@ -20,9 +20,9 @@ export default function Home() {
     if (allDefined) {
       const estimate = parseFloat(
         (
-          (parseInt(speed) / parseInt(devHours)) *
-          parseInt(hours) *
-          parseInt(people)
+          (parseFloat(speed) / parseFloat(devHours)) *
+          parseFloat(hours) *
+          parseFloat(people)
         ).toFixed(2)
       );
       return roundingEnabled ? Math.round(estimate) : estimate;
