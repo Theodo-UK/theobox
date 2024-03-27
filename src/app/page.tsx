@@ -39,22 +39,22 @@ export default function Home() {
   }, [devHours, setQueryParams]);
 
   return (
-    <main className="flex flex-col items-center justify-center px-10 gap-5 h-screen">
-      <div>
-        <button
-          className="rounded-full h-5 w-5 bg-orange-500 mx-1"
-          onClick={() => setCubeColor("orange")}
-        />
-        <button
-          className="rounded-full bg-red-600 h-5 w-5 mx-1"
-          onClick={() => setCubeColor("red")}
-        />
-        <button
-          className="rounded-full bg-green-600 h-5 w-5 mx-1"
-          onClick={() => setCubeColor("green")}
-        />
-      </div>
-      <div className="h-[35%] w-full">
+    <main className="flex flex-col items-center justify-center px-10 py-14 gap-5 h-full">
+      <div className="h-[300px] w-full mt-10">
+        <div className="flex justify-center items-center">
+          <button
+            className="rounded-full h-5 w-5 bg-orange-500 mx-1"
+            onClick={() => setCubeColor("orange")}
+          />
+          <button
+            className="rounded-full bg-red-600 h-5 w-5 mx-1"
+            onClick={() => setCubeColor("red")}
+          />
+          <button
+            className="rounded-full bg-green-600 h-5 w-5 mx-1"
+            onClick={() => setCubeColor("green")}
+          />
+        </div>
         <Box color={cubeColor} />
       </div>
 
